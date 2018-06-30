@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_xml"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_add"
+            android:icon="@drawable/add_user_xml"
+            android:title="Insert Trainee" />
+
+        <item
+            android:id="@+id/nav_addCourse"
+            android:icon="@drawable/add_xml"
+            android:title="Create Course" />
+
+        <item
+            android:id="@+id/nav_tList"
+            android:icon="@drawable/_user_xml"
+            android:title="Trainee Section" />
+
+        <item
+            android:id="@+id/nav_courseList"
+            android:icon="@drawable/books_xml"
+            android:title="Course Section" />
+
+
+        <item
+            android:id="@+id/nav_log_"
+            android:icon="@drawable/_deadline_xml"
+            android:title="Log" />
+
+
+        <!--<item-->
+        <!--<item-->
+            <!--android:id="@+id/nav_slideshow"-->
+            <!--android:icon="@drawable/ic_menu_slideshow"-->
+            <!--android:title="Slideshow" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_manage"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Tools" />-->
+    </group>
+
+    <item android:title="Misc.">
+        <menu>
+
+            <!--<item-->
+                <!--android:id="@+id/nav_traineeList"-->
+                <!--android:icon="@drawable/ic_view_list"-->
+                <!--android:title="List" />-->
+
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/_question_xml"
+                android:title="About" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>

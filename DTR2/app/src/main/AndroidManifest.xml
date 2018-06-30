@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.blckhck3r.dtr">
+    <application
+        tools:replace="icon, label"
+        android:allowBackup="true"
+        android:icon="@drawable/a_blue_round"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/a_blue_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <uses-sdk tools:overrideLibrary="in.codeshuffle.typewriterview"/>
+        <activity android:name="._activity._activity.main_activity.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="._activity._fragments.add_fragment"
+            android:hardwareAccelerated="true"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name="._activity._fragments.home_fragment"
+            android:hardwareAccelerated="true"
+            android:configChanges="keyboardHidden|orientation"/>
+
+        <activity android:name="._activity._activity.info_activity.InfoActivity"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name="._activity._activity.update_delete_activity.UpdateActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden"
+            android:hardwareAccelerated="true"/>
+
+        <activity android:name="._activity._activity.update_delete_activity.UpdateInfoActivity"
+            android:hardwareAccelerated="true"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity
+            android:name="._activity._activity.main_activity.MainActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/app_name" />
+
+        <activity android:name="._activity._activity.time_activity.TraineeTimeList"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden"
+            android:hardwareAccelerated="true"/>
+        />
+        <activity
+            android:name="._activity._fragments.AllTraineeList"
+            android:label="@string/title_activity_all_trainee_list"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"/>
+        <activity android:name="._activity._activity.info_activity.CourseInfoActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="._activity._activity.course_update.edit_course_activity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="._activity._activity.course_enrolled.course_enrolled"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="._activity._activity.main_activity.Log_Activity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden"></activity>
+    </application>
+
+
+</manifest>

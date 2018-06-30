@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/building_transparent"
+    android:orientation="vertical"
+    tools:context="com.blckhck3r.dtr._activity._activity.info_activity.InfoActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/info_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:gravity="center"
+            android:padding="12dp">
+
+
+
+            <LinearLayout
+                android:id="@+id/titleArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:text="C:/> "/>
+                <in.codeshuffle.typewriterview.TypeWriterView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+                    android:textColor="#000"
+                    android:text="Trainee Info."
+                    android:textSize="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/idArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/_search_xml" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Trainee ID: "
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/infoId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" id"
+                    android:fontFamily="monospace"
+                    android:textStyle="bold"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nameArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/_user_xml" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:text="Name: "
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/infoName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" name"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/courseArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/books_xml" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:text="Course: "
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/infoCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" course"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/emailArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/courseArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/envelope_xml" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Email: "
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/infoEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" email"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/numberArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/emailArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/tele_xml" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number: "
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:fontFamily="monospace"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/infoNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" number"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/addressArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/numberArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/map_xml" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Address: "
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/infoAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" address"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/statusArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addressArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/hourglass_xml" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="Status: "
+                    android:textColor="#000"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/traineeStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=" stats"
+                    android:textAlignment="textStart"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/statusArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/_internet_xml" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Timestamp: "
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/infoTimestamp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:text=" timestamp"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/traineeTimeArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/timeArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/balance_xml" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Remaining: "
+                    android:textAlignment="textStart"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:fontFamily="monospace"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/traineeTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 00 "
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=" hr"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=" : "
+                    android:textColor="#006699"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="18sp"
+                    />
+                <TextView
+                    android:id="@+id/timeremaining_minute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="00 "
+                    android:textColor="#006699"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="16sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text=" min "
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/scheduleArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/traineeTimeArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/xml_calendar" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Schedule date: "
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:fontFamily="monospace"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text=" day"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeinArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/scheduleArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/timein" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Time-in: "
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/sH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="00 "
+                    android:gravity="center"
+                    android:textColor="#006699"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=" hr "
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:fontFamily="monospace"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=": "
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:fontFamily="monospace"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/mH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="00 "
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:text=" min "
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/t1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+                    android:gravity="center_vertical"
+                    android:text=" am"
+                    android:textColor="#006699"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeoutArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/timeinArea"
+                android:layout_marginBottom="12dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/timeout" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Time-out: "
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/eH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="00"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:fontFamily="monospace"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:text=" hr "
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=": "
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/eM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="00 "
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textColor="#006699"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=" min "
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:fontFamily="monospace"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/t2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text=" am"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:fontFamily="monospace"
+                    android:textColor="#006699"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</LinearLayout>

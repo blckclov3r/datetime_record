@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contentColor"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:animationCache="true"
+    android:fitsSystemWindows="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.blckhck3r.dtr._activity._activity.main_activity.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:background="@drawable/building_transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/sounds"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_height="85dp">
+
+                <com.taishi.library.Indicator
+                    android:id="@+id/indicator"
+                    android:alpha=".1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    app:bar_num="30"
+                    app:bar_color="@color/colorPrimaryDark"
+                    app:step_num="75"
+                    app:duration="10000"
+                    />
+        </LinearLayout>
+
+
+</RelativeLayout>

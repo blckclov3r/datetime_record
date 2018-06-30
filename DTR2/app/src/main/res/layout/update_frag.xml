@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="355dp"
+        android:alwaysDrawnWithCache="true"
+        android:background="#c3c3c3"
+        android:padding="@dimen/cardview_default_radius"
+        android:scrollbars="vertical"
+        android:divider="#c3c3c3"
+        android:dividerHeight="1dp"
+        android:scrollingCache="true"
+        android:smoothScrollbar="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/sv" />
+
+    <android.support.v7.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:queryHint="Search"
+        android:id="@+id/sv">
+    </android.support.v7.widget.SearchView>
+</RelativeLayout>

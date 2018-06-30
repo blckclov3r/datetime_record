@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/building_transparent"
+    tools:context="com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateInfoActivity"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="14dp">
+
+
+            <LinearLayout
+                android:id="@+id/titleArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="C:/>"/>
+                <in.codeshuffle.typewriterview.TypeWriterView
+                    android:id="@+id/typeWriterView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Edit"
+                    android:textColor="#000"
+                    android:fontFamily="monospace"
+                    android:textSize="30dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/courseArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleArea"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:padding="5dp"
+                    android:src="@drawable/course" />
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/infoUpdateCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nameArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/courseArea"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/man" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/infoUpdateName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="start"
+                        android:maxLength="30"
+                        android:hint="Fullname"
+                        android:textStyle="bold"
+                        android:fontFamily="monospace"
+                        android:inputType="textPersonName"
+                        android:textAlignment="textStart"
+                        android:focusableInTouchMode="false"
+                        android:focusedByDefault="false"
+                        android:textColor="#777" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/emailArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameArea"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/envelope" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/infoUpdateEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="start"
+                        android:hint="Email Address"
+                        android:textStyle="bold"
+                        android:maxLength="30"
+                        android:fontFamily="monospace"
+                        android:inputType="textEmailAddress"
+                        android:textAlignment="textStart"
+                        android:textColor="#006699" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/numberArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/emailArea"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/telephone_dark" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/infoUpdateNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:textStyle="bold"
+                        android:maxLength="14"
+                        android:fontFamily="monospace"
+                        android:hint="Contact Number"
+                        android:inputType="phone"
+                        android:textAlignment="textStart"
+                        android:textColor="#006699" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/addressArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/timeArea"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="44dp"
+                    android:padding="5dp"
+                    android:src="@drawable/map" />
+                <EditText
+                    android:id="@+id/infoUpdateAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:hint="Address"
+                    android:maxLength="399"
+                    android:inputType="textPersonName"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#006699" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeArea"
+                android:layout_below="@id/numberArea"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/hourglass" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/trainee_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Time Remaining"
+                        android:textStyle="bold"
+                        android:maxLength="4"
+                        android:fontFamily="monospace"
+                        android:inputType="number"
+                        android:textColor="#006699" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/buttonArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addressArea"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/infoUpdateBtn"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/transparent_btn"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:text="Update"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="21sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/helloworld"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buttonArea"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="All Right Reserved 2018" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" MindWeb eSolutions | Training Service"
+                    android:textColor="#000" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="This program is created by: Abrenica, Aljun"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="Source code bitbucket.com/blckhck3r"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/linearLayout2">
+
+                <TextView
+                    android:id="@+id/infoUpdateId"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

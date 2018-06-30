@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/building_transparent"
+    tools:context="com.blckhck3r.dtr._activity._activity.course_update.edit_course_activity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:id="@+id/titleArea"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="5dp"
+                    android:textSize="18dp"
+                    android:text="C:/>"
+                    android:textColor="#000"
+                    android:layout_height="match_parent" />
+                <in.codeshuffle.typewriterview.TypeWriterView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:textColor="#000"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="Course Update"
+                    android:textSize="30sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nameArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titleArea"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/course" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/course"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Course Title"
+                        android:maxLength="30"
+                        android:textColor="#777"
+                        android:layout_marginStart="5dp"
+                        android:inputType="textPersonName"
+                        android:textStyle="bold"
+                         />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nameArea"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/balance_xml" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/hrCourse"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Total hour of training"
+                        android:inputType="number"
+                        android:layout_marginStart="5dp"
+                        android:maxLength="4"
+                        android:textStyle="bold"
+                        android:textColor="#006699" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/enrolleeArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/timeArea"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/_group_xml" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/maxEnrollee"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Maximum Enrolles"
+                        android:maxLength="3"
+                        android:layout_marginStart="5dp"
+                        android:inputType="number"
+                        android:textStyle="bold"
+                        android:textColor="#006699" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/scheduleArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/enrolleeArea"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/calendar" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/sched"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textStyle="bold"
+                        android:maxLength="30"
+                        android:layout_marginStart="5dp"
+                        android:inputType="textPersonName"
+                        android:textColor="#006699"
+                        android:hint="Schedule" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeinArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/scheduleArea">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/timein" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="From: "
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/start_hour"
+                    android:layout_width="50dp"
+                    android:textColor="#006699"
+                    android:gravity="center"
+                    android:text="00"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textStyle="bold"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" hr : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/start_minute"
+                    android:layout_width="50dp"
+                    android:textStyle="bold"
+                    android:textColor="#006699"
+                    android:gravity="center"
+                    android:maxLength="2"
+                    android:text="00"
+                    android:inputType="number"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" min "
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/t1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"></Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeoutArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/timeinArea"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/timeout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginStart="21dp"
+                    android:text="To: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/end_hour"
+                    android:layout_width="50dp"
+                    android:textColor="#006699"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:text="00"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" hr : "
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/end_minute"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#006699"
+                    android:gravity="center"
+                    android:maxLength="2"
+                    android:inputType="number"
+                    android:text="00"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" min "
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/t2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"></Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/descriptionArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/timeoutArea"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="54dp"
+                    android:padding="5dp"
+                    android:src="@drawable/xml_calendar" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/courseDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Description"
+                        android:textStyle="bold"
+                        android:inputType="textPersonName"
+                        android:textColor="#006699"
+                        android:layout_marginStart="5dp"
+                        android:textAlignment="textStart"/>
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttonArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/descriptionArea"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/updateCourse"
+                    android:layout_width="210dp"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/transparent_btn"
+                    android:text="Update Course"
+                    android:textColor="@color/colorPrimary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/helloworld"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buttonArea"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All Right Reserved 2018" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" MindWeb eSolutions | Training Service"
+                    android:textColor="@color/colorPrimary" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333"
+                    android:text="This program is created by: Abrenica, Aljun"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="Source code bitbucket.com/blckhck3r"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:id="@+id/courseId"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

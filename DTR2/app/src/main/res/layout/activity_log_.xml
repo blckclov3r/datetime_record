@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="4dp"
+    tools:context="com.blckhck3r.dtr._activity._activity.main_activity.Log_Activity">
+
+    <ListView
+        android:id="@+id/lv"
+        android:divider="#c3c3c3"
+        android:background="#c3c3c3"
+        android:smoothScrollbar="true"
+        android:dividerHeight="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+</android.support.v7.widget.CardView>
