@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.SharedElementCallback;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
@@ -108,7 +107,7 @@ public class update_frag extends Fragment {
             id = c.getInt(0);
             name = c.getString(1);
             trainee = new Trainee();
-            trainee.set_id(id);
+            trainee.setTrainee_id(id);
             trainee.setName(name);
             listData.add(trainee);
         }

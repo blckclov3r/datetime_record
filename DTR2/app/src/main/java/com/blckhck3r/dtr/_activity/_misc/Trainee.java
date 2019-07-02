@@ -7,7 +7,7 @@ package com.blckhck3r.dtr._activity._misc;
 
 public class Trainee {
 
-    private int _id;
+    private int trainee_id;
     private String name;
     private String course;
     private String email;
@@ -232,8 +232,8 @@ public class Trainee {
 
     public Trainee(){}
 
-    public Trainee(int _id, String name, String course, String email, String contact, String address) {
-        this._id = _id;
+    public Trainee(int trainee_id, String name, String course, String email, String contact, String address) {
+        this.trainee_id = trainee_id;
         this.name = name;
         this.course = course;
         this.email = email;
@@ -251,12 +251,12 @@ public class Trainee {
 
 
 
-    public int get_id() {
-        return _id;
+    public int getTrainee_id() {
+        return trainee_id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setTrainee_id(int trainee_id) {
+        this.trainee_id = trainee_id;
     }
 
     public String getName() {

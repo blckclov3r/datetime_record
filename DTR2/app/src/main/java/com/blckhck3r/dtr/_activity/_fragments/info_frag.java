@@ -4,29 +4,23 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
 import com.blckhck3r.dtr._activity._activity.info_activity.InfoActivity;
-import com.blckhck3r.dtr._activity._activity.main_activity.MainActivity;
 import com.blckhck3r.dtr._activity._activity.time_activity.TraineeTimeList;
 import com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateInfoActivity;
 import com.blckhck3r.dtr._activity._database.databaseHelper;
@@ -41,8 +35,6 @@ import java.util.ArrayList;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import spencerstudios.com.bungeelib.Bungee;
-
-import static com.blckhck3r.dtr.R.id.timeupdate;
 
 /**
  * Created by Abrenica, Aljun
@@ -133,7 +125,7 @@ public class info_frag extends Fragment {
                 id = c.getInt(0);
                 name = c.getString(1);
                 trainee = new Trainee();
-                trainee.set_id(id);
+                trainee.setTrainee_id(id);
                 trainee.setName(name);
                 listData.add(trainee);
             }while(c.moveToNext());
@@ -248,7 +240,6 @@ public class info_frag extends Fragment {
                             addressList = cursor.getString(5);
                             timestampList = cursor.getString(6);
                             timeremaining = cursor.getInt(7);
-
                             sched = cursor.getString(8);
                             hStart = cursor.getInt(9);
                             hEnd = cursor.getInt(10);
@@ -286,11 +277,7 @@ public class info_frag extends Fragment {
 
                     cursor.close();
                     dbHelper.close();
-//                    if(idList==-1){
-//                        Toast.makeText(ListActivity.this, "Error", Toast.LENGTH_SHORT).show();
-//                    }else{
-//                        Toast.makeText(ListActivity.this, "ID: "+idList+" \nName: "+nameList, Toast.LENGTH_SHORT).show();
-//                    }
+//
 
                 }
             });
@@ -307,7 +294,6 @@ public class info_frag extends Fragment {
                     builder.setDividers(true);
                     builder.setTitleMultiline(true);
                     builder.setWindowDimming(80);
-//                    builder.setDarkTheme(true);
                     builder.setItemTextColor(getResources().getColor(R.color.colorPrimaryDark));
                     builder.setIconColor(getResources().getColor(R.color.white));
                     builder.setBackgroundColor(getResources().getColor(R.color.white));

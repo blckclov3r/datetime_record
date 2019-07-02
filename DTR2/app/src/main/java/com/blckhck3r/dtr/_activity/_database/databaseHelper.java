@@ -84,7 +84,6 @@ public class databaseHelper extends SQLiteOpenHelper {
     public boolean addLog(dbLog log) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        db.beginTransaction();
         try{
             cv.put(baseKey.LOG_MESSAGE, log.getMessage());
             long result = db.insert(baseKey.LOG_TABLE, null, cv);
@@ -96,11 +95,7 @@ public class databaseHelper extends SQLiteOpenHelper {
             }
         }catch (Exception e){
             e.printStackTrace();
-            db.close();
             return false;
-        }finally {
-            db.endTransaction();
-            db.close();
         }
 
     }
@@ -120,7 +115,6 @@ public class databaseHelper extends SQLiteOpenHelper {
     public int countCourse(String course) {
         int counter = 0;
         SQLiteDatabase db = this.getReadableDatabase();
-        db.beginTransaction();
         try{
             String sql = "SELECT COUNT(*) FROM " + baseKey.TABLENAME + " WHERE " + baseKey.COURSE + " = '" + course + "'";
             Cursor cursor = db.rawQuery(sql, null);
@@ -128,13 +122,8 @@ public class databaseHelper extends SQLiteOpenHelper {
                 cursor.moveToFirst();
                 counter = cursor.getInt(0);
             }
-            db.setTransactionSuccessful();
         }catch (SQLiteException e){
             e.printStackTrace();
-            db.close();
-        }finally {
-            db.endTransaction();
-            db.close();
         }
         return counter;
     }
@@ -152,10 +141,8 @@ public class databaseHelper extends SQLiteOpenHelper {
                     list.add(courseName);
                 } while (cursor.moveToNext());
             }
-            db.setTransactionSuccessful();
         } catch (SQLiteException e) {
             e.printStackTrace();
-            db.close();
         }
         return list;
     }
@@ -176,7 +163,6 @@ public class databaseHelper extends SQLiteOpenHelper {
             cv.put(baseKey.S_CONDITION, course.getT1());
             cv.put(baseKey.E_CONDITION, course.getT2());
             long result = db.insert(baseKey.COURSE_TABLE, null, cv);
-            db.setTransactionSuccessful();
             if (result > 0) {
                 return true;
             } else {
@@ -184,11 +170,7 @@ public class databaseHelper extends SQLiteOpenHelper {
             }
         } catch (SQLiteException e) {
             e.printStackTrace();
-            db.close();
             return false;
-        } finally {
-            db.endTransaction();
-            db.close();
         }
     }
 
@@ -231,20 +213,14 @@ public class databaseHelper extends SQLiteOpenHelper {
             cv.put(baseKey.TIMEREMAINING, trainee.getTimeremaining());
             cv.put(baseKey.TIMEREMAINING_MINUTE,trainee.getTotal_time_minute());
             row =  db.update(baseKey.TABLENAME, cv, baseKey._ID + "=?", new String[]{String.valueOf(search)});
-            db.setTransactionSuccessful();
         }catch (SQLiteException e){
             e.printStackTrace();
-            db.close();
-        }finally {
-            db.endTransaction();
-            db.close();
         }
         return row;
     }
     public boolean addData(Trainee trainee) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        db.beginTransaction();
         try {
             cv.put(baseKey.NAME, trainee.getName());
             cv.put(baseKey.COURSE, trainee.getCourse());
@@ -260,7 +236,6 @@ public class databaseHelper extends SQLiteOpenHelper {
             cv.put(baseKey.S_CONDITION,trainee.getSt());
             cv.put(baseKey.E_CONDITION,trainee.getEt());
             long result = db.insert(baseKey.TABLENAME, null, cv);
-            db.setTransactionSuccessful();
             if (result > 0) {
                 return true;
             } else {
@@ -269,9 +244,6 @@ public class databaseHelper extends SQLiteOpenHelper {
         } catch (SQLiteException e) {
             e.printStackTrace();
             return false;
-        } finally {
-            db.endTransaction();
-            db.close();
         }
     }
 
@@ -288,7 +260,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getCourseId(String course){
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM "+baseKey.COURSE_TABLE+" WHERE "+baseKey.COURSENAME+" = '"+course+"'";
         return db.rawQuery(query,null);
     }
@@ -296,7 +268,6 @@ public class databaseHelper extends SQLiteOpenHelper {
     public boolean editCourse(int search, Course course) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        db.beginTransaction();
         try {
             cv.put(baseKey.TIMELIMIT, course.getTimeLimit());
             cv.put(baseKey.COURSENAME, course.getAddCourse());
@@ -310,7 +281,6 @@ public class databaseHelper extends SQLiteOpenHelper {
             cv.put(baseKey.S_CONDITION,course.getT1());
             cv.put(baseKey.E_CONDITION,course.getT2());
             long result = db.update(baseKey.COURSE_TABLE, cv, baseKey._ID + "=?", new String[]{String.valueOf(search)});
-            db.setTransactionSuccessful();
             if (result > 0) {
                 return true;
             } else {
@@ -318,11 +288,7 @@ public class databaseHelper extends SQLiteOpenHelper {
             }
         } catch (SQLiteException e) {
             e.printStackTrace();
-            db.close();
             return false;
-        } finally {
-            db.endTransaction();
-            db.close();
         }
     }
     public Cursor getEnrolled(String course) {
@@ -334,7 +300,6 @@ public class databaseHelper extends SQLiteOpenHelper {
     public boolean updateData(int search, Trainee trainee) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        db.beginTransaction();
         try {
             cv.put(baseKey.NAME, trainee.getName());
             cv.put(baseKey.COURSE, trainee.getCourse());
@@ -349,7 +314,6 @@ public class databaseHelper extends SQLiteOpenHelper {
             cv.put(baseKey.S_CONDITION,trainee.getSt());
             cv.put(baseKey.E_CONDITION,trainee.getEt());
             long result = db.update(baseKey.TABLENAME, cv, baseKey._ID + "=?", new String[]{String.valueOf(search)});
-            db.setTransactionSuccessful();
             if (result > 0) {
                 return true;
             } else {
@@ -357,18 +321,13 @@ public class databaseHelper extends SQLiteOpenHelper {
             }
         } catch (SQLiteException e) {
             e.printStackTrace();
-            db.close();
             return false;
-        } finally {
-            db.endTransaction();
-            db.close();
         }
     }
 
     public boolean updateDataCourse(String search,Trainee trainee) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        db.beginTransaction();
         try {
             cv.put(baseKey.COURSE,trainee.getCourse());
             cv.put(baseKey.TSCHED,trainee.gettSched());
@@ -379,7 +338,6 @@ public class databaseHelper extends SQLiteOpenHelper {
             cv.put(baseKey.S_CONDITION,trainee.getSt());
             cv.put(baseKey.E_CONDITION,trainee.getEt());
             long result = db.update(baseKey.TABLENAME, cv, baseKey.COURSE + "=?", new String[]{String.valueOf(search)});
-            db.setTransactionSuccessful();
             if (result > 0) {
                 return true;
             } else {
@@ -388,9 +346,6 @@ public class databaseHelper extends SQLiteOpenHelper {
         } catch (SQLiteException e) {
             e.printStackTrace();
             return false;
-        } finally {
-            db.endTransaction();
-            db.close();
         }
     }
 

@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateActivity;
 import com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateInfoActivity;
 import com.blckhck3r.dtr._activity._database.databaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
@@ -106,7 +105,7 @@ public class edit_frag extends Fragment {
                 id = c.getInt(0);
                 name = c.getString(1);
                 trainee = new Trainee();
-                trainee.set_id(id);
+                trainee.setTrainee_id(id);
                 trainee.setName(name);
                 listData.add(trainee);
             }while(c.moveToNext());

@@ -5,7 +5,7 @@ package com.blckhck3r.dtr._activity._misc;
  */
 
 public class dbLog {
-    private int _id;
+    private int log_id;
     private String message;
     private String timestamp;
 
@@ -18,13 +18,13 @@ public class dbLog {
         this.message = message;
     }
 
-    public int get_id() {
+    public int getLog_id() {
 
-        return _id;
+        return log_id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setLog_id(int log_id) {
+        this.log_id = log_id;
     }
 
     public String getMessage() {

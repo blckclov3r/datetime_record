@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 
 public class baseKey implements BaseColumns {
     //Trainee
-    public static final int VERSION = 2;
+    public static final int VERSION = 1;
     public static final String TABLENAME ="trainee";
     public static final String DBNAME = "mydb.db";
     public static final String NAME = "name";

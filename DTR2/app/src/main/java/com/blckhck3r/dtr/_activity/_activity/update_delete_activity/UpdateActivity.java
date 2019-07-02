@@ -21,7 +21,6 @@ import com.blckhck3r.dtr.R;
 import com.blckhck3r.dtr._activity._activity.main_activity.MainActivity;
 import com.blckhck3r.dtr._activity._database.databaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
-import com.blckhck3r.dtr._activity._misc.dbLog;
 
 import java.util.ArrayList;
 
@@ -80,7 +79,7 @@ public class UpdateActivity extends AppCompatActivity {
                 id = c.getInt(0);
                 name = c.getString(1);
                 trainee = new Trainee();
-                trainee.set_id(id);
+                trainee.setTrainee_id(id);
                 trainee.setName(name);
                 listData.add(trainee);
             } while (c.moveToNext());

@@ -146,7 +146,7 @@ public class add_course extends Fragment {
                     return;
                 }
 
-                final Cursor cursor = dbHelper.getCourseId(addCourse.getText().toString());
+                Cursor cursor = dbHelper.getCourseId(addCourse.getText().toString());
                 if (cursor.moveToFirst()) {
                     do {
                         addCourse.setError("The course name you entered is already exists");

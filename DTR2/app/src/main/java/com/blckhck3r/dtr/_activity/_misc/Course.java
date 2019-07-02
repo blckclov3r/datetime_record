@@ -5,7 +5,7 @@ package com.blckhck3r.dtr._activity._misc;
  * Created by Abrenica, Aljun
  */
 public class Course {
-    int _id;
+    int course_Id;
     int timeLimit =0;
     String addCourse;
     String addDescription;
@@ -103,12 +103,12 @@ public class Course {
     }
 
 
-    public int get_id() {
-        return _id;
+    public int getCourse_Id() {
+        return course_Id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setCourse_Id(int course_Id) {
+        this.course_Id = course_Id;
     }
 
     public int getTimeLimit() {
