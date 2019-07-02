@@ -87,7 +87,6 @@ public class databaseHelper extends SQLiteOpenHelper {
         try{
             cv.put(baseKey.LOG_MESSAGE, log.getMessage());
             long result = db.insert(baseKey.LOG_TABLE, null, cv);
-            db.setTransactionSuccessful();
             if (result == -1) {
                 return false;
             } else {
@@ -100,7 +99,7 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     }
     public Cursor getLogData() {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM '" + baseKey.LOG_TABLE + "'";
         Cursor data = db.rawQuery(query, null);
         return data;
@@ -114,7 +113,7 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     public int countCourse(String course) {
         int counter = 0;
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         try{
             String sql = "SELECT COUNT(*) FROM " + baseKey.TABLENAME + " WHERE " + baseKey.COURSE + " = '" + course + "'";
             Cursor cursor = db.rawQuery(sql, null);
@@ -131,7 +130,6 @@ public class databaseHelper extends SQLiteOpenHelper {
     public ArrayList<String> getAllCourse() {
         ArrayList<String> list = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
-        db.beginTransaction();
         try {
             String selectQuery = "SELECT * FROM " + baseKey.COURSE_TABLE;
             Cursor cursor = db.rawQuery(selectQuery, null);
@@ -149,7 +147,6 @@ public class databaseHelper extends SQLiteOpenHelper {
     public boolean addCourse(Course course) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        db.beginTransaction();
         try {
             cv.put(baseKey.TIMELIMIT, course.getTimeLimit());
             cv.put(baseKey.COURSENAME, course.getAddCourse());
@@ -175,25 +172,25 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getCourseData() {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + baseKey.COURSE_TABLE + " WHERE _id ORDER BY _id DESC";
         return db.rawQuery(query, null);
     }
 
     public Cursor getCourse(){
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + baseKey.COURSE_TABLE;
         return db.rawQuery(query, null);
     }
 
     public Cursor getCourseValue(String courseName) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + baseKey.COURSE_TABLE + " WHERE " + baseKey.COURSENAME + " = '" + courseName + "'";
         return db.rawQuery(query, null);
     }
 
     public Cursor retrieveCourse(String searchCourse) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String[] columns = {baseKey._ID, baseKey.TIMELIMIT, baseKey.COURSENAME};
         Cursor cursor = null;
         if (searchCourse != null && searchCourse.length() > 0) {
@@ -208,7 +205,6 @@ public class databaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         int row = 0;
-        db.beginTransaction();
         try{
             cv.put(baseKey.TIMEREMAINING, trainee.getTimeremaining());
             cv.put(baseKey.TIMEREMAINING_MINUTE,trainee.getTotal_time_minute());
@@ -254,7 +250,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         return data;
     }
     public Cursor getDataId(String name) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM '" + baseKey.TABLENAME + "' WHERE name = '" + name + "'";
         return db.rawQuery(query, null);
     }
@@ -355,7 +351,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         return  db.delete(baseKey.TABLENAME, baseKey.NAME + "=?", new String[]{search});
     }
     public Cursor retrieve(String searchTerm) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String[] columns = {baseKey._ID, baseKey.NAME};
         Cursor cursor = null;
         if (searchTerm != null && searchTerm.length() > 0) {
@@ -367,7 +363,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
     public Cursor checkCourse(String s) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + baseKey.TABLENAME + " WHERE " + baseKey.COURSE + " = '" + s + "'";
         Cursor data = db.rawQuery(query, null);
         return data;
