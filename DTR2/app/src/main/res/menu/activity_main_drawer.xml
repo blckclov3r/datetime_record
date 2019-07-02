@@ -57,7 +57,7 @@
 
             <item
                 android:id="@+id/nav_about"
-                android:icon="@drawable/_question_xml"
+                android:icon="@drawable/send"
                 android:title="About" />
             <item
                 android:id="@+id/nav_send"

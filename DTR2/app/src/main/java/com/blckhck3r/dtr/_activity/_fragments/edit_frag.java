@@ -67,7 +67,6 @@ public class edit_frag extends Fragment {
     }
 
 
-
     @Override
     public void onStart() {
         super.onStart();
