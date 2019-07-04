@@ -21,9 +21,9 @@ import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
 import com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateInfoActivity;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
-import com.blckhck3r.dtr._activity._misc.dbLog;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 
 import java.util.ArrayList;
 
@@ -33,8 +33,8 @@ import es.dmoral.toasty.Toasty;
  * Created by admin on 6/4/2018.
  */
 
-public class edit_frag extends Fragment {
-    databaseHelper dbHelper;
+public class Edit_Fragment extends Fragment {
+    DatabaseHelper dbHelper;
     ListView updateListView;
     ArrayList<Trainee> listData;
     SearchView sv;
@@ -43,7 +43,7 @@ public class edit_frag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.edit_frag,container,false);
-        dbHelper = new databaseHelper(getActivity());
+        dbHelper = new DatabaseHelper(getActivity());
         listData = new ArrayList<>();
         listData.clear();
         sv = (SearchView) view.findViewById(R.id.sv);
@@ -240,11 +240,11 @@ public class edit_frag extends Fragment {
                             updateListView.setAdapter(adapter);
                             dbHelper.close();
                             if(result>0){
-                                boolean x = dbHelper.addLog(new dbLog("Trainee successfully Deleted, name: "+tName));
+                                boolean x = dbHelper.addLog(new DbLog("Trainee successfully Deleted, name: "+tName));
                                 dbHelper.close();
                                 Toast.makeText(getActivity(), "Trainee Successfully deleted", Toast.LENGTH_SHORT).show();
                             }else{
-                                boolean x = dbHelper.addLog(new dbLog("Trainee not deleted, name: "+tName));
+                                boolean x = dbHelper.addLog(new DbLog("Trainee not deleted, name: "+tName));
                                 Toast.makeText(getActivity(), "Trainee not delete", Toast.LENGTH_SHORT).show();
                             }
                         }

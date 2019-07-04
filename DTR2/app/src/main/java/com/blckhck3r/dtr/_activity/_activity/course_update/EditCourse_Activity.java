@@ -18,10 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Course;
 import com.blckhck3r.dtr._activity._misc.Trainee;
-import com.blckhck3r.dtr._activity._misc.dbLog;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
 
@@ -30,13 +30,13 @@ import es.dmoral.toasty.Toasty;
 import in.codeshuffle.typewriterview.TypeWriterView;
 import spencerstudios.com.bungeelib.Bungee;
 
-public class edit_course_activity extends AppCompatActivity {
+public class EditCourse_Activity extends AppCompatActivity {
     static int Id, HrLimit, traineeLimit;
     static String courseName, courseDescription;
     EditText course, hrCourse, maxEnrollee, courseDesc;
     TextView courseId;
     Button updateCourse;
-    databaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     String[] timeCondtion = {"AM", "PM"};
     Spinner t1, t2;
     String e_condition;
@@ -50,8 +50,8 @@ public class edit_course_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_course_activity);
-        dbHelper = new databaseHelper(this);
-        edit_course_activity.this.setTitle("Course Update | Edit");
+        dbHelper = new DatabaseHelper(this);
+        EditCourse_Activity.this.setTitle("Course Update | Edit");
         typeWriterView = (TypeWriterView) findViewById(R.id.title);
         course = (EditText) findViewById(R.id.course);
         hrCourse = (EditText) findViewById(R.id.hrCourse);
@@ -69,7 +69,7 @@ public class edit_course_activity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Id = intent.getIntExtra("_id", -1);
-        courseName = intent.getStringExtra("add_course");
+        courseName = intent.getStringExtra("Add_Course");
         courseDescription = intent.getStringExtra("add_description");
         HrLimit = intent.getIntExtra("time_limit", 0);
         traineeLimit = intent.getIntExtra("course_limit", 0);
@@ -117,10 +117,10 @@ public class edit_course_activity extends AppCompatActivity {
                 typeWriterView.animateText("Course Update");
                 typeWriterView.setDelay(50);
                 LinearLayout layoutBtn = (LinearLayout) findViewById(R.id.buttonArea);
-                Sequent.origin(layoutBtn).anim(edit_course_activity.this, Animation.FADE_IN_LEFT).
+                Sequent.origin(layoutBtn).anim(EditCourse_Activity.this, Animation.FADE_IN_LEFT).
                         delay(300).start();
                 LinearLayout layout = (LinearLayout) findViewById(R.id.helloworld);
-                Sequent.origin(layout).anim(edit_course_activity.this, Animation.BOUNCE_IN).
+                Sequent.origin(layout).anim(EditCourse_Activity.this, Animation.BOUNCE_IN).
                         delay(500).start();
             }
         });
@@ -191,7 +191,7 @@ public class edit_course_activity extends AppCompatActivity {
                 final int endMin = Integer.parseInt(e_minute);
 
 
-                new SweetAlertDialog(edit_course_activity.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                new SweetAlertDialog(EditCourse_Activity.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
                         .setTitleText("Are you sure?")
                         .setCustomImage(R.drawable._do_xml)
                         .setContentText("Do you want to update this course?")
@@ -200,7 +200,7 @@ public class edit_course_activity extends AppCompatActivity {
                             @Override
                             public void onClick(SweetAlertDialog sDialog) {
                                 sDialog.dismissWithAnimation();
-                                new SweetAlertDialog(edit_course_activity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                new SweetAlertDialog(EditCourse_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                         .setTitleText("Success!")
                                         .setContentText("Course and Trainee, successfully updated")
                                         .show();
@@ -210,7 +210,7 @@ public class edit_course_activity extends AppCompatActivity {
                                         boolean traineeEdit = dbHelper.updateDataCourse(courseName, new Trainee(cou, schedule, startHour, endHour, startMin, endMin, s_con, e_con));
                                         boolean resultCourse = dbHelper.editCourse(Integer.parseInt(couId), new Course(Integer.parseInt(hrCou), cou, couDes,
                                                 Integer.parseInt(maxEn), schedule, startHour, endHour, startMin, endMin, s_con, e_con));
-                                        boolean zxcv = dbHelper.addLog(new dbLog("Course successfully updated, course title: " + courseName));
+                                        boolean zxcv = dbHelper.addLog(new DbLog("Course successfully updated, course title: " + courseName));
                                         if (traineeEdit && resultCourse && zxcv) {
                                             Toasty.success(getApplicationContext(), "Course and Trainee successfully updated", Toast.LENGTH_SHORT).show();
                                         }else if(resultCourse && zxcv){
@@ -276,7 +276,7 @@ public class edit_course_activity extends AppCompatActivity {
         typeWriterView.setWithMusic(false);
         typeWriterView.removeAnimation();
         dbHelper.close();
-        Bungee.slideDown(edit_course_activity.this);
+        Bungee.slideDown(EditCourse_Activity.this);
         finish();
     }
 }

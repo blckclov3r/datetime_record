@@ -16,19 +16,17 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Course;
-import com.blckhck3r.dtr._activity._misc.dbLog;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import in.codeshuffle.typewriterview.TypeWriterView;
 
-public class add_course extends Fragment {
+public class Add_Course extends Fragment {
     static int sHour = 0;
     static int eHour = 0;
     static int sMinute = 0;
@@ -40,7 +38,7 @@ public class add_course extends Fragment {
     EditText traineeLimit;
     EditText startMinute;
     EditText endMinute;
-    databaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     Spinner t1, t2;
     EditText day;
     String[] timeCondition = {"AM", "PM"};
@@ -92,7 +90,7 @@ public class add_course extends Fragment {
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        dbHelper = new databaseHelper(getActivity());
+        dbHelper = new DatabaseHelper(getActivity());
         addLimit = (EditText) view.findViewById(R.id.addLimit);
         addCourse = (EditText) view.findViewById(R.id.addCourse);
         addDescription = (EditText) view.findViewById(R.id.addDescription);
@@ -266,7 +264,7 @@ public class add_course extends Fragment {
                                             .setTitleText("Success")
                                             .setContentText("Course successfully created.")
                                             .show();
-                                    boolean result = dbHelper.addLog(new dbLog("Course successfully created, course title: " + course));
+                                    boolean result = dbHelper.addLog(new DbLog("Course successfully created, course title: " + course));
                                     dbHelper.close();
                                     setClear();
                                 } else {
@@ -274,7 +272,7 @@ public class add_course extends Fragment {
                                             .setTitleText("Oops...")
                                             .setContentText("Something went wrong!")
                                             .show();
-                                    boolean result = dbHelper.addLog(new dbLog("Course not added, something wrong in the database"));
+                                    boolean result = dbHelper.addLog(new DbLog("Course not added, something wrong in the database"));
                                     dbHelper.close();
                                 }
                                 eMinute = 0;

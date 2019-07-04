@@ -17,9 +17,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
-import com.blckhck3r.dtr._activity._misc.dbLog;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
@@ -30,7 +30,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import in.codeshuffle.typewriterview.TypeWriterView;
 
-public class add_fragment extends Fragment {
+public class Add_Fragment extends Fragment {
     public static int traineeTime = 0;
     public static int traineeLimit = 0;
     public static int compareLimit = 0;
@@ -38,19 +38,17 @@ public class add_fragment extends Fragment {
     static int timeout = 0;
     static int minutein = 0;
     static int minuteout = 0;
-    //    String[] course = {"Empty", "Android", "C#", ".NET", "Wordpress", "Java"};
-    ArrayAdapter<String> courseAdapter;
-    SearchableSpinner spinnerCourse;
-    EditText tName, tEmail, tContact, tAddress;
-    databaseHelper dbHelper;
-    Button insBtn, btnReset;
-    String schedDay = "";
+    private ArrayAdapter<String> courseAdapter;
+    private SearchableSpinner spinnerCourse;
+    private EditText tName, tEmail, tContact, tAddress;
+    private DatabaseHelper dbHelper;
+    private Button insBtn;
+    private String schedDay = "";
     String st = "";
     String et = "";
     TypeWriterView typeWriterView;
-    private long mLastClickTime = 0;
 
-    public add_fragment() {
+    public Add_Fragment() {
     }
 
     @Nullable
@@ -73,11 +71,11 @@ public class add_fragment extends Fragment {
 
     public void setSpinner() {
         ArrayList<String> courseList = dbHelper.getAllCourse();
-        if (courseList.isEmpty() || courseList.equals("")) {
+        if (courseList.isEmpty()) {
             courseList.add("");
             new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Empty")
-                    .setContentText("Course list is empty\nCreate course first before to proceed in the registration form")
+                    .setContentText("Course list is empty \nCreate course first before to proceed in the registration form")
                     .setConfirmText(" Ok ")
                     .show();
             Toasty.warning(getActivity(), "Course mandatory", Toast.LENGTH_SHORT).show();
@@ -124,18 +122,14 @@ public class add_fragment extends Fragment {
         tContact = (EditText) view.findViewById(R.id.tContact);
         tAddress = (EditText) view.findViewById(R.id.tAddress);
         insBtn = (Button) view.findViewById(R.id.insBtn);
-        btnReset = (Button) view.findViewById(R.id.btnReset);
-        dbHelper = new databaseHelper(getActivity());
+        dbHelper = new DatabaseHelper(getActivity());
         setSpinner();
 
         view.findViewById(R.id.btnReset).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
-                    return;
-                }
-                mLastClickTime = SystemClock.elapsedRealtime();
+
 
                 new SweetAlertDialog(getActivity(), SweetAlertDialog.CUSTOM_IMAGE_TYPE)
                         .setTitleText("Reset")
@@ -171,36 +165,7 @@ public class add_fragment extends Fragment {
                                 setClear();
                             }
                         }).show();
-//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                builder.setTitle("Reset");
-//                builder.setIcon(R.drawable.ic_loop);
-//                builder.setMessage("Are you sure to reset all fields?");
-//                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        traineeTime = 0;
-//                        traineeLimit = 0;
-//                        compareLimit = 0;
-//                        setClear();
-////                        tName.setEnabled(true);
-////                        tAddress.setEnabled(true);
-////                        tContact.setEnabled(true);
-////                        tEmail.setEnabled(true);
-////                        spinnerCourse.setEnabled(true);
-////                        insBtn.setEnabled(true);
-////                        insBtn.setClickable(true);
-////                        insBtn.setTextColor(Color.WHITE);
-////                        insBtn.setBackgroundColor(Color.rgb(47, 79, 79));
-////                        Toast("Reset");
-//                    }
-//                });
-//                builder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener(){
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        dialogInterface.dismiss();
-//                    }
-//                });
-//                builder.show();
+
 
             }
         });
@@ -208,12 +173,6 @@ public class add_fragment extends Fragment {
         view.findViewById(R.id.insBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
-                    return;
-                }
-                mLastClickTime = SystemClock.elapsedRealtime();
-
                 final String name = tName.getText().toString().trim();
                 final String course = spinnerCourse.getSelectedItem().toString().trim();
                 final String email = tEmail.getText().toString().trim();
@@ -224,7 +183,7 @@ public class add_fragment extends Fragment {
                 String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
 
 
-                final Cursor cursor = dbHelper.getDataId(tName.getText().toString());
+                Cursor cursor = dbHelper.getDataId(tName.getText().toString());
                 if (cursor.moveToFirst()) {
                     do {
                         tName.setError("The name you entered is already exists");
@@ -255,7 +214,7 @@ public class add_fragment extends Fragment {
                     return;
                 }
 
-                if (course.length() == 0 || course.equals("")) {
+                if (course.isEmpty()) {
                     Toasty.error(getActivity(), "Course mandatory", Toast.LENGTH_SHORT).show();
                     Toast("Course is required");
                     return;
@@ -354,7 +313,7 @@ public class add_fragment extends Fragment {
                                             .setTitleText("Success!")
                                             .setContentText("New trainee, successfully created!")
                                             .show();
-                                    boolean x = dbHelper.addLog(new dbLog("Add trainee, name: " + name + ", course: " + course));
+                                    boolean x = dbHelper.addLog(new DbLog("Add trainee, name: " + name + ", course: " + course));
                                     dbHelper.close();
                                     traineeTime = 0;
                                     compareLimit = 0;
@@ -366,7 +325,7 @@ public class add_fragment extends Fragment {
                                             .setTitleText("Oops...")
                                             .setContentText("Something went wrong!")
                                             .show();
-                                    boolean x = dbHelper.addLog(new dbLog("Trainee not inserted"));
+                                    boolean x = dbHelper.addLog(new DbLog("Trainee not inserted"));
                                     dbHelper.close();
                                     Toast("Data not inserted");
                                 }

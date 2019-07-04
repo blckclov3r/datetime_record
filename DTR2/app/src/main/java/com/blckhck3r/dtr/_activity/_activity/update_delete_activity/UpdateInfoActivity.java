@@ -1,13 +1,11 @@
 package com.blckhck3r.dtr._activity._activity.update_delete_activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -17,16 +15,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._activity.main_activity.SplashScreen;
-import com.blckhck3r.dtr._activity._activity.time_activity.TraineeTimeList;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
-import com.blckhck3r.dtr._activity._misc.dbLog;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
@@ -51,7 +46,7 @@ public class UpdateInfoActivity extends AppCompatActivity {
 //    String[] course = {"Empty", "Android", "C#", ".NET", "Wordpress", "Java"};
     ArrayList<String> courseList;
     ArrayAdapter<String> courseAdapter;
-    databaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     ArrayList<Trainee> listData;
     int s_hour = 0;
     int e_hour = 0;
@@ -65,7 +60,7 @@ public class UpdateInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_info);
-        dbHelper = new databaseHelper(this);
+        dbHelper = new DatabaseHelper(this);
         UpdateInfoActivity.this.setTitle("Trainee Update");
         typeWriterView= (TypeWriterView) findViewById(R.id.typeWriterView);
         listData = new ArrayList<>();
@@ -323,7 +318,7 @@ public class UpdateInfoActivity extends AppCompatActivity {
                                             .showCancelButton(false)
                                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
 //                                    Toast.makeText(UpdateInfoActivity.this, "Trainee Successfully Updated", Toast.LENGTH_SHORT).show();
-                                    boolean zcxv = dbHelper.addLog(new dbLog("Trainee successfully updated, name: " + name + "" +
+                                    boolean zcxv = dbHelper.addLog(new DbLog("Trainee successfully updated, name: " + name + "" +
                                             ",email: " + email + ", contact number: " + number + ", address: " + address + " time remaining: " + tremaining));
                                     infoUpdateBtn.setClickable(false);
                                     infoUpdateBtn.setEnabled(false);

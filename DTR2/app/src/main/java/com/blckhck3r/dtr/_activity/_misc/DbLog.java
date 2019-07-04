@@ -4,17 +4,17 @@ package com.blckhck3r.dtr._activity._misc;
  * Created by admin on 6/10/2018.
  */
 
-public class dbLog {
+public class DbLog {
     private int log_id;
     private String message;
     private String timestamp;
 
-    public dbLog(String message, String timestamp) {
+    public DbLog(String message, String timestamp) {
         this.message = message;
         this.timestamp = timestamp;
     }
 
-    public dbLog(String message) {
+    public DbLog(String message) {
         this.message = message;
     }
 

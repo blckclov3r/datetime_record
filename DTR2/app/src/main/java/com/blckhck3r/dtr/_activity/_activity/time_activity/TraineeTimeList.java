@@ -19,11 +19,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._activity.main_activity.SplashScreen;
-import com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateInfoActivity;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
-import com.blckhck3r.dtr._activity._misc.dbLog;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
 
@@ -52,7 +50,7 @@ public class TraineeTimeList extends AppCompatActivity {
     EditText tStartMinute, tEndMinute;
     Spinner t1, t2;
     String[] timeCondition = {"AM", "PM"};
-    databaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     int t_main_remaining =0;
     static int start_m = 0;
     int timeremaing=0;
@@ -65,7 +63,7 @@ public class TraineeTimeList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trainee_time_list);
-        dbHelper = new databaseHelper(this);
+        dbHelper = new DatabaseHelper(this);
         TraineeTimeList.this.setTitle("Time Update");
         typeWriterView= (TypeWriterView) findViewById(R.id.title);
         infoName = (TextView) findViewById(R.id.infoName);
@@ -512,9 +510,9 @@ public class TraineeTimeList extends AppCompatActivity {
                                             thistime.setText(String.valueOf(newTime));
 
                                             if(totalTime == 0 || totalTime <=0){
-                                                boolean log = dbHelper.addLog(new dbLog("Trainee time update, name: " + name + ", status: Complete!"));
+                                                boolean log = dbHelper.addLog(new DbLog("Trainee time update, name: " + name + ", status: Complete!"));
                                             }else{
-                                                boolean log = dbHelper.addLog(new dbLog("Trainee time update, name: " + name + ", elapse time: " + elapseTime + " hr: "+temporary+" min" +
+                                                boolean log = dbHelper.addLog(new DbLog("Trainee time update, name: " + name + ", elapse time: " + elapseTime + " hr: "+temporary+" min" +
                                                         ", time remaining: " + timeremaining + " hr., status: " + String.valueOf(myStatus)));
                                             }
                                             dbHelper.close();

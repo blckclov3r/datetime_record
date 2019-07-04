@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -21,13 +20,10 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
-import com.blckhck3r.dtr._activity._misc.dbLog;
-
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 import java.util.ArrayList;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import spencerstudios.com.bungeelib.Bungee;
@@ -36,11 +32,10 @@ import spencerstudios.com.bungeelib.Bungee;
 public class Log_Activity extends AppCompatActivity {
 
     ListView lv;
-    ArrayList<dbLog> listData;
+    ArrayList<DbLog> listData;
     CustomAdapter adapter;
-    databaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     int text_list = 0;
-//    MediaPlayer mymusic;
     private long mLastClickTime = 0;
 
     @Override
@@ -51,7 +46,7 @@ public class Log_Activity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
                 WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
         Log_Activity.this.setTitle("C:/> Log | Record");
-        dbHelper = new databaseHelper(getApplicationContext());
+        dbHelper = new DatabaseHelper(getApplicationContext());
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
                 WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
@@ -72,22 +67,11 @@ public class Log_Activity extends AppCompatActivity {
         }
     }
 
-//    public void setMymusic() {
-//        new Handler().post(new Runnable() {
-//            @Override
-//            public void run() {
-//                mymusic = MediaPlayer.create(Log_Activity.this, R.raw.happy_beer);
-//                mymusic.start();
-//                mymusic.setLooping(true);
-//            }
-//        });
-//    }
 
     @Override
     protected void onPause() {
         super.onPause();
         dbHelper.close();
-//        mymusic.release();
     }
 
 
@@ -99,7 +83,6 @@ public class Log_Activity extends AppCompatActivity {
         MainActivity.fa.finish();
         listData.clear();
         populateView();
-//        setMymusic();
     }
 
     public void Toast(final String toast) {
@@ -222,7 +205,7 @@ public class Log_Activity extends AppCompatActivity {
             do {
                 String name = cursor.getString(1);
                 String time = cursor.getString(2);
-                listData.add(new dbLog(name, time));
+                listData.add(new DbLog(name, time));
 
             } while (cursor.moveToNext());
         }
@@ -242,11 +225,11 @@ public class Log_Activity extends AppCompatActivity {
     }
 
     private class CustomAdapter extends BaseAdapter {
-        ArrayList<dbLog> textList;
+        ArrayList<DbLog> textList;
         private Context context;
         private int layout;
 
-        public CustomAdapter(Context context, int layout, ArrayList<dbLog> textList) {
+        public CustomAdapter(Context context, int layout, ArrayList<DbLog> textList) {
             this.context = context;
             this.layout = layout;
             this.textList = textList;
@@ -282,7 +265,7 @@ public class Log_Activity extends AppCompatActivity {
             } else {
                 holder = (CustomAdapter.ViewHolder) row.getTag();
             }
-            final dbLog log = textList.get(i);
+            final DbLog log = textList.get(i);
             holder.name.setText(log.getMessage());
             holder.timestamp.setText(log.getTimestamp());
             return row;

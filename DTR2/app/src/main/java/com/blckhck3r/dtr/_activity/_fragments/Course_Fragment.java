@@ -18,12 +18,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._activity.course_enrolled.course_enrolled;
-import com.blckhck3r.dtr._activity._activity.course_update.edit_course_activity;
+import com.blckhck3r.dtr._activity._activity.course_enrolled.Course_Enrolled;
+import com.blckhck3r.dtr._activity._activity.course_update.EditCourse_Activity;
 import com.blckhck3r.dtr._activity._activity.info_activity.CourseInfoActivity;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Course;
-import com.blckhck3r.dtr._activity._misc.dbLog;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 
 import org.michaelbel.bottomsheet.BottomSheet;
 import org.michaelbel.bottomsheet.Utils;
@@ -38,8 +38,8 @@ import spencerstudios.com.bungeelib.Bungee;
  * Created by Abrenica, Aljun
  */
 
-public class course_frag extends Fragment {
-    databaseHelper dbHelper;
+public class Course_Fragment extends Fragment {
+    DatabaseHelper dbHelper;
     ListView lv;
     ArrayList<Course> listData;
     CustomAdapter adapter;
@@ -52,7 +52,7 @@ public class course_frag extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.edit_frag,container,false);
         lv = (ListView) view.findViewById(R.id.updateListView);
-        dbHelper = new databaseHelper(getActivity());
+        dbHelper = new DatabaseHelper(getActivity());
         listData = new ArrayList<>();
         listData.clear();
         sv = (SearchView) view.findViewById(R.id.sv);
@@ -227,7 +227,7 @@ public class course_frag extends Fragment {
 
                             Intent intent = new Intent(getActivity(), CourseInfoActivity.class);
                             intent.putExtra("_id",idList);
-                            intent.putExtra("add_course",courseName);
+                            intent.putExtra("Add_Course",courseName);
                             intent.putExtra("add_description",courseDesc);
                             intent.putExtra("time_limit",timeLimit);
                             intent.putExtra("course_limit",course_limit);
@@ -301,9 +301,9 @@ public class course_frag extends Fragment {
                                             t1 = cursor.getString(10);
                                             t2 = cursor.getString(11);
 
-                                            Intent intent = new Intent(getActivity(), edit_course_activity.class);
+                                            Intent intent = new Intent(getActivity(), EditCourse_Activity.class);
                                             intent.putExtra("_id", idList);
-                                            intent.putExtra("add_course", courseName);
+                                            intent.putExtra("Add_Course", courseName);
                                             intent.putExtra("add_description", courseDesc);
                                             intent.putExtra("time_limit", timeLimit);
                                             intent.putExtra("course_limit", course_limit);
@@ -336,9 +336,9 @@ public class course_frag extends Fragment {
                                             courseDesc = cursor.getString(3);
                                             course_limit = cursor.getInt(4);
 
-                                            Intent intent = new Intent(getActivity(), course_enrolled.class);
+                                            Intent intent = new Intent(getActivity(), Course_Enrolled.class);
                                             intent.putExtra("_id", idList);
-                                            intent.putExtra("add_course", courseName);
+                                            intent.putExtra("Add_Course", courseName);
                                             intent.putExtra("add_description", courseDesc);
                                             intent.putExtra("time_limit", timeLimit);
                                             intent.putExtra("course_limit", course_limit);
@@ -395,7 +395,7 @@ public class course_frag extends Fragment {
                                                             lv.setAdapter(adapter);
                                                             dbHelper.close();
                                                             if(result>0){
-                                                                boolean x = dbHelper.addLog(new dbLog("Course successfully deleted, course title: "+String.valueOf(myCourse)));
+                                                                boolean x = dbHelper.addLog(new DbLog("Course successfully deleted, course title: "+String.valueOf(myCourse)));
                                                                 dbHelper.close();
                                                                 Toasty.success(getActivity(), "Course Successfully deleted", Toast.LENGTH_SHORT).show();
                                                             }else{
@@ -403,7 +403,7 @@ public class course_frag extends Fragment {
                                                                         .setTitleText("Oops...")
                                                                         .setContentText("Something went wrong!")
                                                                         .show();
-                                                                boolean x = dbHelper.addLog(new dbLog("Course not deleted, course title: "+String.valueOf(myCourse)));
+                                                                boolean x = dbHelper.addLog(new DbLog("Course not deleted, course title: "+String.valueOf(myCourse)));
                                                                 dbHelper.close();
                                                                 Toasty.error(getActivity(), "Course not delete", Toast.LENGTH_SHORT).show();
                                                             }

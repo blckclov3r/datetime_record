@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/building_transparent"
-    tools:context="com.blckhck3r.dtr._activity._activity.course_update.edit_course_activity">
+    tools:context="com.blckhck3r.dtr._activity._activity.course_update.EditCourse_Activity">
 
     <ScrollView
         android:layout_width="match_parent"

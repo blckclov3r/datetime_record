@@ -23,9 +23,9 @@ import com.blckhck3r.dtr.R;
 import com.blckhck3r.dtr._activity._activity.info_activity.InfoActivity;
 import com.blckhck3r.dtr._activity._activity.time_activity.TraineeTimeList;
 import com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateInfoActivity;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
-import com.blckhck3r.dtr._activity._misc.dbLog;
+import com.blckhck3r.dtr._activity._misc.DbLog;
 
 import org.michaelbel.bottomsheet.BottomSheet;
 import org.michaelbel.bottomsheet.Utils;
@@ -40,8 +40,8 @@ import spencerstudios.com.bungeelib.Bungee;
  * Created by Abrenica, Aljun
  */
 
-public class info_frag extends Fragment {
-    databaseHelper dbHelper;
+public class Info_Fragment extends Fragment {
+    DatabaseHelper dbHelper;
     ListView listView;
     ArrayList<Trainee> listData;
     CustomAdapter adapter;
@@ -53,7 +53,7 @@ public class info_frag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.info_frag,container,false);
-        dbHelper = new databaseHelper(getActivity());
+        dbHelper = new DatabaseHelper(getActivity());
         listData = new ArrayList<>();
         listData.clear();
         listView = (ListView) view.findViewById(R.id.listView);
@@ -447,7 +447,7 @@ public class info_frag extends Fragment {
                                                                 .setTitleText("Delete")
                                                                 .setContentText("Trainee successfully deleted")
                                                                 .show();
-                                                        boolean zxcv = dbHelper.addLog(new dbLog("Trainee successfully deleted, name: " + tName));
+                                                        boolean zxcv = dbHelper.addLog(new DbLog("Trainee successfully deleted, name: " + tName));
                                                         dbHelper.close();
 //                                                Toast.makeText(getActivity(), "Trainee Successfully deleted", Toast.LENGTH_SHORT).show();
                                                     } else {
@@ -455,7 +455,7 @@ public class info_frag extends Fragment {
                                                                 .setTitleText("Oops...")
                                                                 .setContentText("Something went wrong!")
                                                                 .show();
-                                                        boolean zxcv = dbHelper.addLog(new dbLog("Trainee not delete, name: " + tName));
+                                                        boolean zxcv = dbHelper.addLog(new DbLog("Trainee not delete, name: " + tName));
                                                         dbHelper.close();
 //                                                Toast.makeText(getActivity(), "Trainee not delete", Toast.LENGTH_SHORT).show();
                                                     }

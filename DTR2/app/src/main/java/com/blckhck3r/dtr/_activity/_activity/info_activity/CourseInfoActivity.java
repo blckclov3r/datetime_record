@@ -11,10 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._activity.main_activity.MainActivity;
-import com.blckhck3r.dtr._activity._activity.time_activity.TraineeTimeList;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
-import com.blckhck3r.dtr._activity._misc.baseKey;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
 
@@ -27,13 +24,13 @@ public class CourseInfoActivity extends AppCompatActivity {
     TextView courseName,courseDescription,courseHrLimit,courseRegLimit,courseId,enrolled;
     static int regNumber = 0;
     TextView dTraining,start_hour,start_minute,end_hour,end_minute,t_1,t_2;
-    databaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     TypeWriterView typeWriterView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_info);
-        dbHelper = new databaseHelper(getApplicationContext());
+        dbHelper = new DatabaseHelper(getApplicationContext());
         CourseInfoActivity.this.setTitle("Course Information");
         typeWriterView= (TypeWriterView) findViewById(R.id.title);
         courseId = (TextView) findViewById(R.id.courseId);
@@ -56,7 +53,7 @@ public class CourseInfoActivity extends AppCompatActivity {
         super.onStart();
         Intent intent = getIntent();
         int Id = intent.getIntExtra("_id",-1);
-        String course = intent.getStringExtra("add_course");
+        String course = intent.getStringExtra("Add_Course");
         String courseDesc = intent.getStringExtra("add_description");
         int HrLimit = intent.getIntExtra("time_limit",0);
         int traineeLimit = intent.getIntExtra("course_limit",0);

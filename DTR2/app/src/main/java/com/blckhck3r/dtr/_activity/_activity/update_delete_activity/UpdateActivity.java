@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
 import com.blckhck3r.dtr._activity._activity.main_activity.MainActivity;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 /* Program © Acinerba Nujla Aljun Abrenica*/
 
 public class UpdateActivity extends AppCompatActivity {
-    databaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     ListView updateListView;
     ArrayList<Trainee> listData;
     SearchView sv;
@@ -38,7 +38,7 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
         UpdateActivity.this.setTitle("DELETE / UPDATE");
-        dbHelper = new databaseHelper(this);
+        dbHelper = new DatabaseHelper(this);
         sv = (SearchView) findViewById(R.id.sv);
 
         updateListView = (ListView) findViewById(R.id.updateListView);

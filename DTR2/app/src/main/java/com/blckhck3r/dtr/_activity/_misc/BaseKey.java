@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
  * Created by Abrenica, Aljun
  */
 
-public class baseKey implements BaseColumns {
+public class BaseKey implements BaseColumns {
     //Trainee
     public static final int VERSION = 1;
     public static final String TABLENAME ="trainee";
@@ -27,7 +27,7 @@ public class baseKey implements BaseColumns {
     //courses
     public static final String COURSE_TABLE ="course_tbl";
     public static final String TIMELIMIT = "time_limit";
-    public static final String COURSENAME ="add_course";
+    public static final String COURSENAME ="Add_Course";
     public static final String COURSEDESCRIPTION = "add_description";
     public static final String REGISTRATIONLIMIT = "course_limit";
     public static final String DAYSCHEDULE = "day_sched";

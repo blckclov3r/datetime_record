@@ -1,11 +1,9 @@
 package com.blckhck3r.dtr._activity._activity.course_enrolled;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -14,17 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateActivity;
-import com.blckhck3r.dtr._activity._activity.update_delete_activity.UpdateInfoActivity;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
 
 import java.util.ArrayList;
@@ -33,10 +27,10 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import spencerstudios.com.bungeelib.Bungee;
 
-public class course_enrolled extends AppCompatActivity {
+public class Course_Enrolled extends AppCompatActivity {
 
     ListView lv;
-    databaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     ArrayList<Trainee> listData;
     SearchView sv;
     CustomAdapter adapter;
@@ -47,9 +41,9 @@ public class course_enrolled extends AppCompatActivity {
         setContentView(R.layout.activity_course_enrolled);
         lv = (ListView) findViewById(R.id.lv);
         sv = (SearchView) findViewById(R.id.sv);
-        course_enrolled.this.setTitle("C:/> Course Enrollee");
+        Course_Enrolled.this.setTitle("C:/> Course Enrollee");
         courseName = (TextView) findViewById(R.id.courseName);
-        dbHelper = new databaseHelper(getApplicationContext());
+        dbHelper = new DatabaseHelper(getApplicationContext());
         listData = new ArrayList<>();
         populateView();
     }
@@ -119,7 +113,7 @@ public class course_enrolled extends AppCompatActivity {
     public void populateView(){
         Intent intent = getIntent();
         int Id = intent.getIntExtra("_id",-1);
-        String course = intent.getStringExtra("add_course");
+        String course = intent.getStringExtra("Add_Course");
         String courseDesc = intent.getStringExtra("add_description");
         int HrLimit = intent.getIntExtra("time_limit",0);
         int traineeLimit = intent.getIntExtra("course_limit",0);
@@ -195,7 +189,7 @@ public class course_enrolled extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         dbHelper.close();
-        Bungee.slideDown(course_enrolled.this);
+        Bungee.slideDown(Course_Enrolled.this);
         finish();
     }
 }

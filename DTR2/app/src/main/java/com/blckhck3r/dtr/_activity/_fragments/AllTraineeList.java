@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
 
 import com.blckhck3r.dtr.R;
-import com.blckhck3r.dtr._activity._activity.main_activity.Log_Activity;
 import com.blckhck3r.dtr._activity._activity.main_activity.MainActivity;
 import com.blckhck3r.dtr._activity._activity.main_activity.SectionPageAdapter;
 
@@ -49,8 +48,8 @@ public class AllTraineeList extends AppCompatActivity {
 
     public void setupViewPager(ViewPager viewPager){
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new info_frag(),"Trainee List");
-        adapter.addFragment(new course_frag() ,"Course List");
+        adapter.addFragment(new Info_Fragment(),"Trainee List");
+        adapter.addFragment(new Course_Fragment() ,"Course List");
         viewPager.setAdapter(adapter);
     }
 

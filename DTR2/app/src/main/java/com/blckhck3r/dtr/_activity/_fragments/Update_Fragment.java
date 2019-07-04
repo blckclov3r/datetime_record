@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.blckhck3r.dtr.R;
 import com.blckhck3r.dtr._activity._activity.time_activity.TraineeTimeList;
-import com.blckhck3r.dtr._activity._database.databaseHelper;
+import com.blckhck3r.dtr._activity._database.DatabaseHelper;
 import com.blckhck3r.dtr._activity._misc.Trainee;
 
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ import java.util.ArrayList;
  * Created by admin on 6/4/2018.
  */
 
-public class update_frag extends Fragment {
-    databaseHelper dbHelper;
+public class Update_Fragment extends Fragment {
+    DatabaseHelper dbHelper;
     ListView listView;
     ArrayList<Trainee> listData;
     CustomAdapter adapter;
@@ -39,7 +39,7 @@ public class update_frag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.update_frag,container,false);
-        dbHelper = new databaseHelper(getActivity());
+        dbHelper = new DatabaseHelper(getActivity());
         listData = new ArrayList<>();
         listData.clear();
         listView = (ListView) view.findViewById(R.id.listView);

@@ -18,12 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="._activity._fragments.add_fragment"
+        <activity android:name="._activity._fragments.Add_Fragment"
             android:hardwareAccelerated="true"
             android:configChanges="keyboardHidden|orientation"
             android:windowSoftInputMode="stateHidden"/>
 
-        <activity android:name="._activity._fragments.home_fragment"
+        <activity android:name="._activity._fragments.Home_Fragment"
             android:hardwareAccelerated="true"
             android:configChanges="keyboardHidden|orientation"/>
 
@@ -64,11 +64,11 @@
             android:configChanges="keyboardHidden|orientation"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name="._activity._activity.course_update.edit_course_activity"
+        <activity android:name="._activity._activity.course_update.EditCourse_Activity"
             android:configChanges="keyboardHidden|orientation"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name="._activity._activity.course_enrolled.course_enrolled"
+        <activity android:name="._activity._activity.course_enrolled.Course_Enrolled"
             android:configChanges="keyboardHidden|orientation"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="stateHidden"/>

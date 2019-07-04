@@ -6,7 +6,7 @@
     android:gravity="center"
     android:keepScreenOn="true"
     android:textAlignment="center"
-    tools:context="com.blckhck3r.dtr._activity._fragments.add_course">
+    tools:context="com.blckhck3r.dtr._activity._fragments.Add_Course">
 
     <ScrollView
         android:layout_width="match_parent"
