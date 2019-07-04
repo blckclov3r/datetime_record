@@ -355,7 +355,7 @@ public class MainActivity extends AppCompatActivity
         view.findViewById(R.id.github).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse("github.com/blckclov3r"));
+                Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/blckclov3r"));
                 startActivity(browse);
             }
         });
